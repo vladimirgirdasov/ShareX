@@ -191,6 +191,7 @@
             this.cbOneDriveCreateShareableLink = new System.Windows.Forms.CheckBox();
             this.oAuth2OneDrive = new ShareX.UploadersLib.OAuthControl();
             this.tpGoogleDrive = new System.Windows.Forms.TabPage();
+            this.cbGoogleDriveDirectLink = new System.Windows.Forms.CheckBox();
             this.cbGoogleDriveUseFolder = new System.Windows.Forms.CheckBox();
             this.txtGoogleDriveFolderID = new System.Windows.Forms.TextBox();
             this.lblGoogleDriveFolderID = new System.Windows.Forms.Label();
@@ -200,6 +201,16 @@
             this.btnGoogleDriveRefreshFolders = new System.Windows.Forms.Button();
             this.cbGoogleDriveIsPublic = new System.Windows.Forms.CheckBox();
             this.oauth2GoogleDrive = new ShareX.UploadersLib.OAuthControl();
+            this.tpPuush = new System.Windows.Forms.TabPage();
+            this.lblPuushAPIKey = new System.Windows.Forms.Label();
+            this.txtPuushAPIKey = new System.Windows.Forms.TextBox();
+            this.llPuushCreateAccount = new System.Windows.Forms.LinkLabel();
+            this.llPuushForgottenPassword = new System.Windows.Forms.LinkLabel();
+            this.btnPuushLogin = new System.Windows.Forms.Button();
+            this.txtPuushPassword = new System.Windows.Forms.TextBox();
+            this.txtPuushEmail = new System.Windows.Forms.TextBox();
+            this.lblPuushEmail = new System.Windows.Forms.Label();
+            this.lblPuushPassword = new System.Windows.Forms.Label();
             this.tpBox = new System.Windows.Forms.TabPage();
             this.lblBoxFolderTip = new System.Windows.Forms.Label();
             this.cbBoxShare = new System.Windows.Forms.CheckBox();
@@ -565,6 +576,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbDropboxLogo)).BeginInit();
             this.tpOneDrive.SuspendLayout();
             this.tpGoogleDrive.SuspendLayout();
+            this.tpPuush.SuspendLayout();
             this.tpBox.SuspendLayout();
             this.tpAmazonS3.SuspendLayout();
             this.tpMega.SuspendLayout();
@@ -1612,6 +1624,7 @@
             this.tcFileUploaders.Controls.Add(this.tpDropbox);
             this.tcFileUploaders.Controls.Add(this.tpOneDrive);
             this.tcFileUploaders.Controls.Add(this.tpGoogleDrive);
+            this.tcFileUploaders.Controls.Add(this.tpPuush);
             this.tcFileUploaders.Controls.Add(this.tpBox);
             this.tcFileUploaders.Controls.Add(this.tpAmazonS3);
             this.tcFileUploaders.Controls.Add(this.tpMega);
@@ -1826,6 +1839,7 @@
             // 
             // tpGoogleDrive
             // 
+            this.tpGoogleDrive.Controls.Add(this.cbGoogleDriveDirectLink);
             this.tpGoogleDrive.Controls.Add(this.cbGoogleDriveUseFolder);
             this.tpGoogleDrive.Controls.Add(this.txtGoogleDriveFolderID);
             this.tpGoogleDrive.Controls.Add(this.lblGoogleDriveFolderID);
@@ -1836,6 +1850,13 @@
             resources.ApplyResources(this.tpGoogleDrive, "tpGoogleDrive");
             this.tpGoogleDrive.Name = "tpGoogleDrive";
             this.tpGoogleDrive.UseVisualStyleBackColor = true;
+            // 
+            // cbGoogleDriveDirectLink
+            // 
+            resources.ApplyResources(this.cbGoogleDriveDirectLink, "cbGoogleDriveDirectLink");
+            this.cbGoogleDriveDirectLink.Name = "cbGoogleDriveDirectLink";
+            this.cbGoogleDriveDirectLink.UseVisualStyleBackColor = true;
+            this.cbGoogleDriveDirectLink.CheckedChanged += new System.EventHandler(this.cbGoogleDriveDirectLink_CheckedChanged);
             // 
             // cbGoogleDriveUseFolder
             // 
@@ -1899,6 +1920,75 @@
             this.oauth2GoogleDrive.CompleteButtonClicked += new ShareX.UploadersLib.OAuthControl.CompleteButtonClickedEventHandler(this.oauth2GoogleDrive_CompleteButtonClicked);
             this.oauth2GoogleDrive.ClearButtonClicked += new ShareX.UploadersLib.OAuthControl.ClearButtonclickedEventHandler(this.oauth2GoogleDrive_ClearButtonClicked);
             this.oauth2GoogleDrive.RefreshButtonClicked += new ShareX.UploadersLib.OAuthControl.RefreshButtonClickedEventHandler(this.oauth2GoogleDrive_RefreshButtonClicked);
+            // 
+            // tpPuush
+            // 
+            this.tpPuush.Controls.Add(this.lblPuushAPIKey);
+            this.tpPuush.Controls.Add(this.txtPuushAPIKey);
+            this.tpPuush.Controls.Add(this.llPuushCreateAccount);
+            this.tpPuush.Controls.Add(this.llPuushForgottenPassword);
+            this.tpPuush.Controls.Add(this.btnPuushLogin);
+            this.tpPuush.Controls.Add(this.txtPuushPassword);
+            this.tpPuush.Controls.Add(this.txtPuushEmail);
+            this.tpPuush.Controls.Add(this.lblPuushEmail);
+            this.tpPuush.Controls.Add(this.lblPuushPassword);
+            resources.ApplyResources(this.tpPuush, "tpPuush");
+            this.tpPuush.Name = "tpPuush";
+            this.tpPuush.UseVisualStyleBackColor = true;
+            // 
+            // lblPuushAPIKey
+            // 
+            resources.ApplyResources(this.lblPuushAPIKey, "lblPuushAPIKey");
+            this.lblPuushAPIKey.Name = "lblPuushAPIKey";
+            // 
+            // txtPuushAPIKey
+            // 
+            resources.ApplyResources(this.txtPuushAPIKey, "txtPuushAPIKey");
+            this.txtPuushAPIKey.Name = "txtPuushAPIKey";
+            this.txtPuushAPIKey.UseSystemPasswordChar = true;
+            this.txtPuushAPIKey.TextChanged += new System.EventHandler(this.txtPuushAPIKey_TextChanged);
+            // 
+            // llPuushCreateAccount
+            // 
+            resources.ApplyResources(this.llPuushCreateAccount, "llPuushCreateAccount");
+            this.llPuushCreateAccount.Name = "llPuushCreateAccount";
+            this.llPuushCreateAccount.TabStop = true;
+            this.llPuushCreateAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llPuushCreateAccount_LinkClicked);
+            // 
+            // llPuushForgottenPassword
+            // 
+            resources.ApplyResources(this.llPuushForgottenPassword, "llPuushForgottenPassword");
+            this.llPuushForgottenPassword.Name = "llPuushForgottenPassword";
+            this.llPuushForgottenPassword.TabStop = true;
+            this.llPuushForgottenPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llPuushForgottenPassword_LinkClicked);
+            // 
+            // btnPuushLogin
+            // 
+            resources.ApplyResources(this.btnPuushLogin, "btnPuushLogin");
+            this.btnPuushLogin.Name = "btnPuushLogin";
+            this.btnPuushLogin.UseVisualStyleBackColor = true;
+            this.btnPuushLogin.Click += new System.EventHandler(this.btnPuushLogin_Click);
+            // 
+            // txtPuushPassword
+            // 
+            resources.ApplyResources(this.txtPuushPassword, "txtPuushPassword");
+            this.txtPuushPassword.Name = "txtPuushPassword";
+            this.txtPuushPassword.UseSystemPasswordChar = true;
+            // 
+            // txtPuushEmail
+            // 
+            resources.ApplyResources(this.txtPuushEmail, "txtPuushEmail");
+            this.txtPuushEmail.Name = "txtPuushEmail";
+            // 
+            // lblPuushEmail
+            // 
+            resources.ApplyResources(this.lblPuushEmail, "lblPuushEmail");
+            this.lblPuushEmail.Name = "lblPuushEmail";
+            // 
+            // lblPuushPassword
+            // 
+            resources.ApplyResources(this.lblPuushPassword, "lblPuushPassword");
+            this.lblPuushPassword.Name = "lblPuushPassword";
             // 
             // tpBox
             // 
@@ -4370,6 +4460,8 @@
             this.tpOneDrive.PerformLayout();
             this.tpGoogleDrive.ResumeLayout(false);
             this.tpGoogleDrive.PerformLayout();
+            this.tpPuush.ResumeLayout(false);
+            this.tpPuush.PerformLayout();
             this.tpBox.ResumeLayout(false);
             this.tpBox.PerformLayout();
             this.tpAmazonS3.ResumeLayout(false);
@@ -4977,5 +5069,16 @@
         private System.Windows.Forms.TextBox txtEmailAutomaticSendTo;
         private System.Windows.Forms.CheckBox cbEmailAutomaticSend;
         private System.Windows.Forms.Button btnLithiioGetAPIKey;
+        private System.Windows.Forms.CheckBox cbGoogleDriveDirectLink;
+        private System.Windows.Forms.Label lblPuushAPIKey;
+        private System.Windows.Forms.TextBox txtPuushAPIKey;
+        private System.Windows.Forms.LinkLabel llPuushCreateAccount;
+        private System.Windows.Forms.LinkLabel llPuushForgottenPassword;
+        private System.Windows.Forms.Button btnPuushLogin;
+        private System.Windows.Forms.TextBox txtPuushPassword;
+        private System.Windows.Forms.TextBox txtPuushEmail;
+        private System.Windows.Forms.Label lblPuushEmail;
+        private System.Windows.Forms.Label lblPuushPassword;
+        public System.Windows.Forms.TabPage tpPuush;
     }
 }
